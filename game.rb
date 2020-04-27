@@ -15,9 +15,12 @@ class Game
     @players.each{|player| puts "#{player.name} has #{player.lives} lives"}
   end
 
+  def winner
+    @players.select{|player| player.lives > 0}
+  end
+
   def display_winner
-    winner = @players.select{|player| player.lives > 0}
-    puts "The winner is #{winner.name}"
+    puts "The winner is #{winner.first.name}"
   end
 
    def game_over?
